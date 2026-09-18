@@ -1,0 +1,13 @@
+.image-button {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+
+}
+.image-button:hover {
+    -fx-opacity: 0.8;
+}
+.image-button:pressed {
+    -fx-opacity: 0.6;
+}

@@ -1,16 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.macdonaldmartin.rpgstatgenjava.MainController">
+<AnchorPane prefHeight="570.0" prefWidth="330.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.macdonaldmartin.rpgstatgenjava.MainController">
    <children>
-      <Label layoutX="198.0" layoutY="29.0" text="RPG Stat Generator">
+      <Label layoutX="48.0" layoutY="31.0" text="RPG Stats Generator">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <Label fx:id="lblSTR" layoutX="78.0" layoutY="100.0" text="STR">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDex" layoutX="79.0" layoutY="143.0" text="DEX">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+
+      <Button fx:id="btnStr" layoutX="184.0" layoutY="103.0" mnemonicParsing="false" text="?" />
+      <Button fx:id="btnDex" layoutX="184.0" layoutY="145.0" mnemonicParsing="false" text="?" />
+      <Button fx:id="btnCon" layoutX="184.0" layoutY="188.0" mnemonicParsing="false" text="?" />
+      <Button fx:id="btnInt" layoutX="184.0" layoutY="232.0" mnemonicParsing="false" text="?" />
+      <Button fx:id="btnWis" layoutX="184.0" layoutY="276.0" mnemonicParsing="false" text="?" />
+      <Button fx:id="btnCha" layoutX="184.0" layoutY="321.0" mnemonicParsing="false" text="?" />
+
+      <Button fx:id="btnRoll" layoutX="116.0" layoutY="393.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="79.0" text="Roll" />
+
+      <Label fx:id="lblCon" layoutX="76.0" layoutY="187.0" text="CON">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblInt" layoutX="81.0" layoutY="231.0" text="INT">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblWis" layoutX="79.0" layoutY="275.0" text="WIS">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCha" layoutX="77.0" layoutY="320.0" text="CHA">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+
+      <Button fx:id="btnDie1" layoutX="45.0" layoutY="472.0" mnemonicParsing="false" styleClass="image-button">
+         <graphic>
+            <ImageView fitHeight="50" fitWidth="50">
+               <image>
+                  <Image url="@images/DieQ.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnDie2" layoutX="105.0" layoutY="472.0" mnemonicParsing="false" styleClass="image-button">
+         <graphic>
+            <ImageView fitHeight="50" fitWidth="50">
+               <image>
+                  <Image url="@images/DieQ.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnDie3" layoutX="166.0" layoutY="472.0" mnemonicParsing="false" styleClass="image-button">
+         <graphic>
+            <ImageView fitHeight="50" fitWidth="50">
+               <image>
+                  <Image url="@images/DieQ.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnDie4" layoutX="228.0" layoutY="472.0" mnemonicParsing="false" styleClass="image-button">
+         <graphic>
+            <ImageView fitHeight="50" fitWidth="50">
+               <image>
+                  <Image url="@images/DieQ.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
