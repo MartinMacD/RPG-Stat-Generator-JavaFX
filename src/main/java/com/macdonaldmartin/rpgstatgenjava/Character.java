@@ -1,5 +1,7 @@
 package com.macdonaldmartin.rpgstatgenjava;
 
+import java.util.Arrays;
+
 public class Character {
 
     //Stats
@@ -10,8 +12,14 @@ public class Character {
     private int wisdom;
     private int charisma;
 
+    private final Dice die = new Dice();
 
-    //Getters
+    //Rolls four dice and outputs an array of them.
+    public int[] rollStat(){
+        return new int[]{die.getRandomRoll(), die.getRandomRoll(), die.getRandomRoll(), die.getRandomRoll()};
+    }
+
+    //Getters.
     public int getStrength() {
         return strength;
     }
