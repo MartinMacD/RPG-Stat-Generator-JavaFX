@@ -1,22 +1,20 @@
 package com.macdonaldmartin.rpgstatgenjava;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
 import java.util.Arrays;
-
 
 public class MainController {
     @FXML private ImageView die1ImageView;
     @FXML private ImageView die2ImageView;
     @FXML private ImageView die3ImageView;
     @FXML private ImageView die4ImageView;
-
     @FXML private Label lblTotal;
 
+    private final Character character = new Character();
     private static final String[] FACE_IMAGES = {
             null,
             "DieOne.png",
@@ -27,13 +25,10 @@ public class MainController {
             "DieSix.png"
     };
 
-    private final Character character = new Character();
-
     @FXML
     private void onRollClick(){
         int[] dice = character.rollStat();
         int total = sum3Dice(dice);
-
         ImageView[] dieViews = { die1ImageView, die2ImageView, die3ImageView, die4ImageView };
 
         //For each dice, change the ImageView to match the image of the dice corresponding to its location in the array.
@@ -42,8 +37,12 @@ public class MainController {
             Image faceImage = new Image(getClass().getResourceAsStream(imagePath));
             dieViews[i].setImage(faceImage);
         }
-        lblTotal.setText("Total: " + String.valueOf(total));
+        lblTotal.setText("Total: " + total);
+    }
 
+    @FXML
+    public void onResetClick() {
+        character.reset();
     }
 
     //Sort the dice in ascending order, then return the highest three dice.

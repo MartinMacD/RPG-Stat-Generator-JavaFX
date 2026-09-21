@@ -19,27 +19,29 @@ public class Character {
         return new int[]{die.getRandomRoll(), die.getRandomRoll(), die.getRandomRoll(), die.getRandomRoll()};
     }
 
-    //Getters.
-    public int getStrength() {
-        return strength;
+    public void reset(){
+        strength = 0;
+        dexterity = 0;
+        constitution = 0;
+        intelligence = 0;
+        wisdom = 0;
+        charisma = 0;
     }
 
+    //Getters.
+    public int getStrength() {return strength;}
     public int getDexterity() {
         return dexterity;
     }
-
     public int getConstitution() {
         return constitution;
     }
-
     public int getIntelligence() {
         return intelligence;
     }
-
     public int getWisdom() {
         return wisdom;
     }
-
     public int getCharisma() {
         return charisma;
     }

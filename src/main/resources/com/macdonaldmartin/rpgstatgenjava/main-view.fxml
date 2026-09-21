@@ -12,16 +12,6 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="lblSTR" layoutX="78.0" layoutY="100.0" text="STR">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblDex" layoutX="79.0" layoutY="143.0" text="DEX">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
 
       <Button fx:id="btnStr" layoutX="184.0" layoutY="103.0" mnemonicParsing="false" text="?" />
       <Button fx:id="btnDex" layoutX="184.0" layoutY="145.0" mnemonicParsing="false" text="?" />
@@ -33,6 +23,16 @@
       <Button fx:id="btnRoll" layoutX="117.0" layoutY="369.0" mnemonicParsing="false" onAction="#onRollClick" prefHeight="50.0" prefWidth="79.0" text="Roll" />
       <Label fx:id="lblTotal" layoutX="136.0" layoutY="433.0" text="Total: ?" />
 
+      <Label fx:id="lblSTR" layoutX="78.0" layoutY="100.0" text="STR">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDex" layoutX="79.0" layoutY="143.0" text="DEX">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
       <Label fx:id="lblCon" layoutX="76.0" layoutY="187.0" text="CON">
          <font>
             <Font size="18.0" />
@@ -74,6 +74,8 @@
             <Image url="@images/DieQ.png" />
          </image>
       </ImageView>
+
+      <Button fx:id="btnReset" layoutX="242.0" layoutY="382.0" mnemonicParsing="false" onAction="#onResetClick" text="Reset" />
 
    </children>
 </AnchorPane>
