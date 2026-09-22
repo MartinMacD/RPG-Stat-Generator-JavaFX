@@ -13,42 +13,42 @@
          </font>
       </Label>
 
-      <Button fx:id="btnStr" layoutX="184.0" layoutY="103.0" mnemonicParsing="false" text="?" />
-      <Button fx:id="btnDex" layoutX="184.0" layoutY="145.0" mnemonicParsing="false" text="?" />
-      <Button fx:id="btnCon" layoutX="184.0" layoutY="188.0" mnemonicParsing="false" text="?" />
-      <Button fx:id="btnInt" layoutX="184.0" layoutY="232.0" mnemonicParsing="false" text="?" />
-      <Button fx:id="btnWis" layoutX="184.0" layoutY="276.0" mnemonicParsing="false" text="?" />
-      <Button fx:id="btnCha" layoutX="184.0" layoutY="321.0" mnemonicParsing="false" text="?" />
+      <Button fx:id="btnStr" layoutX="184.0" layoutY="103.0" mnemonicParsing="false" onAction="#onStrClick" text="?" />
+      <Button fx:id="btnDex" layoutX="184.0" layoutY="145.0" mnemonicParsing="false" onAction="#onDexClick" text="?" />
+      <Button fx:id="btnCon" layoutX="184.0" layoutY="188.0" mnemonicParsing="false" onAction="#onConClick" text="?" />
+      <Button fx:id="btnInt" layoutX="184.0" layoutY="232.0" mnemonicParsing="false" onAction="#onIntClick" text="?" />
+      <Button fx:id="btnWis" layoutX="184.0" layoutY="276.0" mnemonicParsing="false" onAction="#onWisClick" text="?" />
+      <Button fx:id="btnCha" layoutX="184.0" layoutY="321.0" mnemonicParsing="false" onAction="#onChaClick" text="?" />
 
       <Button fx:id="btnRoll" layoutX="117.0" layoutY="369.0" mnemonicParsing="false" onAction="#onRollClick" prefHeight="50.0" prefWidth="79.0" text="Roll" />
       <Label fx:id="lblTotal" layoutX="136.0" layoutY="433.0" text="Total: ?" />
 
-      <Label fx:id="lblSTR" layoutX="78.0" layoutY="100.0" text="STR">
+      <Label fx:id="lblSTR" layoutX="100.0" layoutY="103.0" text="STR">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblDex" layoutX="79.0" layoutY="143.0" text="DEX">
+      <Label fx:id="lblDex" layoutX="101.0" layoutY="146.0" text="DEX">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblCon" layoutX="76.0" layoutY="187.0" text="CON">
+      <Label fx:id="lblCon" layoutX="98.0" layoutY="190.0" text="CON">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblInt" layoutX="81.0" layoutY="231.0" text="INT">
+      <Label fx:id="lblInt" layoutX="103.0" layoutY="234.0" text="INT">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblWis" layoutX="79.0" layoutY="275.0" text="WIS">
+      <Label fx:id="lblWis" layoutX="101.0" layoutY="278.0" text="WIS">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblCha" layoutX="77.0" layoutY="320.0" text="CHA">
+      <Label fx:id="lblCha" layoutX="99.0" layoutY="323.0" text="CHA">
          <font>
             <Font size="18.0" />
          </font>
