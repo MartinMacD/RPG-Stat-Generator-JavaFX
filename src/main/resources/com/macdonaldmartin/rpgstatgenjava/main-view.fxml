@@ -13,42 +13,42 @@
          </font>
       </Label>
 
-      <Button fx:id="btnStr" layoutX="184.0" layoutY="103.0" mnemonicParsing="false" onAction="#onStrClick" text="?" />
-      <Button fx:id="btnDex" layoutX="184.0" layoutY="145.0" mnemonicParsing="false" onAction="#onDexClick" text="?" />
-      <Button fx:id="btnCon" layoutX="184.0" layoutY="188.0" mnemonicParsing="false" onAction="#onConClick" text="?" />
-      <Button fx:id="btnInt" layoutX="184.0" layoutY="232.0" mnemonicParsing="false" onAction="#onIntClick" text="?" />
-      <Button fx:id="btnWis" layoutX="184.0" layoutY="276.0" mnemonicParsing="false" onAction="#onWisClick" text="?" />
-      <Button fx:id="btnCha" layoutX="184.0" layoutY="321.0" mnemonicParsing="false" onAction="#onChaClick" text="?" />
+      <Button fx:id="btnStr" layoutX="193.0" layoutY="106.0" mnemonicParsing="false" onAction="#onStrClick" text="Set" />
+      <Button fx:id="btnDex" layoutX="193.0" layoutY="147.0" mnemonicParsing="false" onAction="#onDexClick" text="Set" />
+      <Button fx:id="btnCon" layoutX="193.0" layoutY="191.0" mnemonicParsing="false" onAction="#onConClick" text="Set" />
+      <Button fx:id="btnInt" layoutX="193.0" layoutY="235.0" mnemonicParsing="false" onAction="#onIntClick" text="Set" />
+      <Button fx:id="btnWis" layoutX="193.0" layoutY="279.0" mnemonicParsing="false" onAction="#onWisClick" text="Set" />
+      <Button fx:id="btnCha" layoutX="192.0" layoutY="321.0" mnemonicParsing="false" onAction="#onChaClick" text="Set" />
 
       <Button fx:id="btnRoll" layoutX="117.0" layoutY="369.0" mnemonicParsing="false" onAction="#onRollClick" prefHeight="50.0" prefWidth="79.0" text="Roll" />
       <Label fx:id="lblTotal" layoutX="136.0" layoutY="433.0" text="Total: ?" />
 
-      <Label fx:id="lblSTR" layoutX="100.0" layoutY="103.0" text="STR">
+      <Label fx:id="lblStr" layoutX="88.0" layoutY="104.0" text="STR">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblDex" layoutX="101.0" layoutY="146.0" text="DEX">
+      <Label fx:id="lblDex" layoutX="89.0" layoutY="146.0" text="DEX">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblCon" layoutX="98.0" layoutY="190.0" text="CON">
+      <Label fx:id="lblCon" layoutX="86.0" layoutY="190.0" text="CON">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblInt" layoutX="103.0" layoutY="234.0" text="INT">
+      <Label fx:id="lblInt" layoutX="91.0" layoutY="234.0" text="INT">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblWis" layoutX="101.0" layoutY="278.0" text="WIS">
+      <Label fx:id="lblWis" layoutX="89.0" layoutY="278.0" text="WIS">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblCha" layoutX="99.0" layoutY="323.0" text="CHA">
+      <Label fx:id="lblCha" layoutX="87.0" layoutY="320.0" text="CHA">
          <font>
             <Font size="18.0" />
          </font>
@@ -76,6 +76,13 @@
       </ImageView>
 
       <Button fx:id="btnReset" layoutX="242.0" layoutY="382.0" mnemonicParsing="false" onAction="#onResetClick" text="Reset" />
+
+      <Label fx:id="lblStrVal" layoutX="144.0" layoutY="104.0" styleClass="boxed-label" text="00" />
+      <Label fx:id="lblDexVal" layoutX="144.0" layoutY="145.0" styleClass="boxed-label" text="00" />
+      <Label fx:id="lblConVal" layoutX="144.0" layoutY="189.0" styleClass="boxed-label" text="00" />
+      <Label fx:id="lblIntVal" layoutX="144.0" layoutY="233.0" styleClass="boxed-label" text="00" />
+      <Label fx:id="lblWisVal" layoutX="144.0" layoutY="277.0" styleClass="boxed-label" text="00" />
+      <Label fx:id="lblChaVal" layoutX="144.0" layoutY="319.0" styleClass="boxed-label" text="00" />
 
    </children>
 </AnchorPane>

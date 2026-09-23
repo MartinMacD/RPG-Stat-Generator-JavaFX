@@ -19,6 +19,12 @@ public class MainController {
     @FXML private Button btnInt;
     @FXML private Button btnWis;
     @FXML private Button btnCha;
+    @FXML private Label lblStrVal;
+    @FXML private Label lblDexVal;
+    @FXML private Label lblConVal;
+    @FXML private Label lblIntVal;
+    @FXML private Label lblWisVal;
+    @FXML private Label lblChaVal;
     @FXML private Label lblTotal;
 
     private final Character character = new Character();
@@ -49,20 +55,21 @@ public class MainController {
         setBtnStatus(false);
     }
 
-    @FXML private void onStrClick() { applyStat(btnStr); }
-    @FXML private void onDexClick() { applyStat(btnDex); }
-    @FXML private void onConClick() { applyStat(btnCon); }
-    @FXML private void onIntClick() { applyStat(btnInt); }
-    @FXML private void onWisClick() { applyStat(btnWis); }
-    @FXML private void onChaClick() { applyStat(btnCha); }
+    @FXML private void onStrClick() { applyStat(btnStr, lblStrVal); }
+    @FXML private void onDexClick() { applyStat(btnDex, lblDexVal); }
+    @FXML private void onConClick() { applyStat(btnCon, lblConVal); }
+    @FXML private void onIntClick() { applyStat(btnInt, lblIntVal); }
+    @FXML private void onWisClick() { applyStat(btnWis, lblWisVal); }
+    @FXML private void onChaClick() { applyStat(btnCha, lblChaVal); }
 
     @FXML
     public void onResetClick() {
         character.reset();
     }
 
-    private void applyStat(Button statButton){
-        statButton.setText(String.valueOf(total));
+    private void applyStat(Button statBtn, Label statLbl){
+        statLbl.setText(String.format("%02d", total));
+        statBtn.setDisable(true);
         setBtnStatus(true);
         total = 0;
     }
@@ -74,14 +81,24 @@ public class MainController {
         return sortedDice[1] + sortedDice[2] + sortedDice[3];
     }
 
-    private void setBtnStatus(boolean status){
-        btnStr.setDisable(status);
-        btnDex.setDisable(status);
-        btnCon.setDisable(status);
-        btnInt.setDisable(status);
-        btnWis.setDisable(status);
-        btnCha.setDisable(status);
+    //Set button on or off depending on whether it has a value that's not 00.
+    private void setBtnStatus(boolean status) {
+        setBtnStatusIfEmpty(btnStr, lblStrVal, status);
+        setBtnStatusIfEmpty(btnDex, lblDexVal, status);
+        setBtnStatusIfEmpty(btnCon, lblConVal, status);
+        setBtnStatusIfEmpty(btnInt, lblIntVal, status);
+        setBtnStatusIfEmpty(btnWis, lblWisVal, status);
+        setBtnStatusIfEmpty(btnCha, lblChaVal, status);
     }
 
+    private void setBtnStatusIfEmpty(Button btn, Label valueLbl, boolean status) {
+        if (hasValue(valueLbl)) {
+            return;
+        }
+        btn.setDisable(status);
+    }
 
+    private boolean hasValue(Label valueLbl) {
+        return Integer.parseInt(valueLbl.getText()) != 00;
+    }
 }

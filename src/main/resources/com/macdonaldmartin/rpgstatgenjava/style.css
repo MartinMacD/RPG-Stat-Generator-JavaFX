@@ -11,3 +11,11 @@
 .image-button:pressed {
     -fx-opacity: 0.6;
 }
+
+.boxed-label {
+    -fx-border-color: black;
+    -fx-border-width: 1px;
+    -fx-padding: 5px;
+    -fx-background-color: white;
+    -fx-alignment: center;
+}
