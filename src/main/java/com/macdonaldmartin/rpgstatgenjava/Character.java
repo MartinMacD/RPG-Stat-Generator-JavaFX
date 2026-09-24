@@ -1,16 +1,12 @@
 package com.macdonaldmartin.rpgstatgenjava;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Character {
 
-    //Stats
-    private int strength;
-    private int dexterity;
-    private int constitution;
-    private int intelligence;
-    private int wisdom;
-    private int charisma;
+    private final Map<String, Integer> stats = new HashMap<>();
 
     private final Dice die = new Dice();
 
@@ -19,30 +15,15 @@ public class Character {
         return new int[]{die.getRandomRoll(), die.getRandomRoll(), die.getRandomRoll(), die.getRandomRoll()};
     }
 
-    public void reset(){
-        strength = 0;
-        dexterity = 0;
-        constitution = 0;
-        intelligence = 0;
-        wisdom = 0;
-        charisma = 0;
+    public void setStat(String statName, int value) {
+        stats.put(statName, value);
     }
 
-    //Getters.
-    public int getStrength() {return strength;}
-    public int getDexterity() {
-        return dexterity;
+    public int getStat(String statName) {
+        return stats.getOrDefault(statName, 0);
     }
-    public int getConstitution() {
-        return constitution;
-    }
-    public int getIntelligence() {
-        return intelligence;
-    }
-    public int getWisdom() {
-        return wisdom;
-    }
-    public int getCharisma() {
-        return charisma;
+
+    public void reset() {
+        stats.clear();
     }
 }

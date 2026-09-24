@@ -9,23 +9,10 @@ import javafx.scene.image.ImageView;
 import java.util.Arrays;
 
 public class MainController {
-    @FXML private ImageView die1ImageView;
-    @FXML private ImageView die2ImageView;
-    @FXML private ImageView die3ImageView;
-    @FXML private ImageView die4ImageView;
-    @FXML private Button btnStr;
-    @FXML private Button btnDex;
-    @FXML private Button btnCon;
-    @FXML private Button btnInt;
-    @FXML private Button btnWis;
-    @FXML private Button btnCha;
-    @FXML private Label lblStrVal;
-    @FXML private Label lblDexVal;
-    @FXML private Label lblConVal;
-    @FXML private Label lblIntVal;
-    @FXML private Label lblWisVal;
-    @FXML private Label lblChaVal;
-    @FXML private Label lblTotal;
+    private Image placeholderDie;
+    @FXML private ImageView die1ImageView, die2ImageView, die3ImageView, die4ImageView;
+    @FXML private Button btnRoll, btnStr, btnDex, btnCon, btnInt, btnWis, btnCha;
+    @FXML private Label lblStrVal, lblDexVal, lblConVal, lblIntVal, lblWisVal, lblChaVal, lblTotal;
 
     private final Character character = new Character();
     private int total;
@@ -40,37 +27,77 @@ public class MainController {
     };
 
     @FXML
+    public void initialize() {
+        placeholderDie = new Image(getClass().getResourceAsStream("images/DieQ.png"));
+        setBtnStatus(true);
+    }
+
+    @FXML
     private void onRollClick(){
         int[] dice = character.rollStat();
         total = sum3Dice(dice);
         ImageView[] dieViews = { die1ImageView, die2ImageView, die3ImageView, die4ImageView };
+
+        // Find the index of the lowest roll
+        int lowestIndex = 0;
+        for (int i = 1; i < dice.length; i++) {
+            if (dice[i] < dice[lowestIndex]) {
+                lowestIndex = i;
+            }
+        }
 
         //For each dice, change the ImageView to match the image of the dice corresponding to its location in the array.
         for (int i = 0; i < dice.length; i++) {
             String imagePath = "images/" + FACE_IMAGES[dice[i]];
             Image faceImage = new Image(getClass().getResourceAsStream(imagePath));
             dieViews[i].setImage(faceImage);
+            dieViews[i].setOpacity(i == lowestIndex ? 0.4 : 1.0);
         }
         lblTotal.setText("Total: " + total);
         setBtnStatus(false);
+        btnRoll.setDisable(true);
     }
 
-    @FXML private void onStrClick() { applyStat(btnStr, lblStrVal); }
-    @FXML private void onDexClick() { applyStat(btnDex, lblDexVal); }
-    @FXML private void onConClick() { applyStat(btnCon, lblConVal); }
-    @FXML private void onIntClick() { applyStat(btnInt, lblIntVal); }
-    @FXML private void onWisClick() { applyStat(btnWis, lblWisVal); }
-    @FXML private void onChaClick() { applyStat(btnCha, lblChaVal); }
+    @FXML private void onStrClick() { applyStat(btnStr, lblStrVal, "strength"); }
+    @FXML private void onDexClick() { applyStat(btnDex, lblDexVal, "dexterity"); }
+    @FXML private void onConClick() { applyStat(btnCon, lblConVal, "constitution"); }
+    @FXML private void onIntClick() { applyStat(btnInt, lblIntVal, "intelligence"); }
+    @FXML private void onWisClick() { applyStat(btnWis, lblWisVal, "wisdom"); }
+    @FXML private void onChaClick() { applyStat(btnCha, lblChaVal, "charisma"); }
 
+    //Reset the program back to initial values.
     @FXML
     public void onResetClick() {
         character.reset();
+
+        lblStrVal.setText("00");
+        lblDexVal.setText("00");
+        lblConVal.setText("00");
+        lblIntVal.setText("00");
+        lblWisVal.setText("00");
+        lblChaVal.setText("00");
+        lblTotal.setText("Total: 00");
+
+        die1ImageView.setImage(placeholderDie);
+        die2ImageView.setImage(placeholderDie);
+        die3ImageView.setImage(placeholderDie);
+        die4ImageView.setImage(placeholderDie);
+
+        die1ImageView.setOpacity(1.0);
+        die2ImageView.setOpacity(1.0);
+        die3ImageView.setOpacity(1.0);
+        die4ImageView.setOpacity(1.0);
+
+        setBtnStatus(true);
+        btnRoll.setDisable(false);
     }
 
-    private void applyStat(Button statBtn, Label statLbl){
+    private void applyStat(Button statBtn, Label statLbl, String statName){
+        character.setStat(statName, total);
         statLbl.setText(String.format("%02d", total));
         statBtn.setDisable(true);
         setBtnStatus(true);
+        btnRoll.setDisable(false);
         total = 0;
     }
 
@@ -83,22 +110,16 @@ public class MainController {
 
     //Set button on or off depending on whether it has a value that's not 00.
     private void setBtnStatus(boolean status) {
-        setBtnStatusIfEmpty(btnStr, lblStrVal, status);
-        setBtnStatusIfEmpty(btnDex, lblDexVal, status);
-        setBtnStatusIfEmpty(btnCon, lblConVal, status);
-        setBtnStatusIfEmpty(btnInt, lblIntVal, status);
-        setBtnStatusIfEmpty(btnWis, lblWisVal, status);
-        setBtnStatusIfEmpty(btnCha, lblChaVal, status);
-    }
-
-    private void setBtnStatusIfEmpty(Button btn, Label valueLbl, boolean status) {
-        if (hasValue(valueLbl)) {
-            return;
-        }
-        btn.setDisable(status);
+        if (!hasValue(lblStrVal)) btnStr.setDisable(status);
+        if (!hasValue(lblDexVal)) btnDex.setDisable(status);
+        if (!hasValue(lblConVal)) btnCon.setDisable(status);
+        if (!hasValue(lblIntVal)) btnInt.setDisable(status);
+        if (!hasValue(lblWisVal)) btnWis.setDisable(status);
+        if (!hasValue(lblChaVal)) btnCha.setDisable(status);
     }
 
     private boolean hasValue(Label valueLbl) {
         return Integer.parseInt(valueLbl.getText()) != 00;
     }
+
 }
