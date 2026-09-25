@@ -26,6 +26,7 @@ public class MainController {
             "DieSix.png"
     };
 
+    //Set a placeholder die to hold the question mark image and set all buttons to be disabled.
     @FXML
     public void initialize() {
         placeholderDie = new Image(getClass().getResourceAsStream("images/DieQ.png"));
@@ -92,6 +93,7 @@ public class MainController {
         btnRoll.setDisable(false);
     }
 
+    //Apply the rolled stat values to whichever stat is chosen.
     private void applyStat(Button statBtn, Label statLbl, String statName){
         character.setStat(statName, total);
         statLbl.setText(String.format("%02d", total));
@@ -118,6 +120,7 @@ public class MainController {
         if (!hasValue(lblChaVal)) btnCha.setDisable(status);
     }
 
+    //Check whether a stat has a value or if it's default.
     private boolean hasValue(Label valueLbl) {
         return Integer.parseInt(valueLbl.getText()) != 00;
     }
